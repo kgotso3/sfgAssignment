@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <html lang="en">
+    <head>
+      <!-- Theme Made By www.w3schools.com - No Copyright -->
+      <title>Bootstrap Theme Simply Me</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="../static/css/main.css"> <!-- Link to main.css -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">E-Parking Challan App</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#myCarousel">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" id="closeModal">&times;</button>
+        <h4 class="modal-title bg-3">Login</h4>
+      </div>
+      <div class="modal-body">
+        <!-- Login form goes here -->
+        <form action="/login" method="POST" id="loginForm">
+          <div class="form-group">
+            <label class="bg-3" for="username">Username:</label>
+            <input type="text" class="form-control" id="username" name="username">
+          </div>
+          <div class="form-group">
+            <label class="bg-3" for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password">
+          </div>
+          <button type="submit" class="btn btn-default" id="loginButton">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Add event listener for the login button click
+  document.getElementById('loginButton').addEventListener('click', function() {
+    // Close the modal
+    $('#loginModal').modal('hide');
+    // Clear the form inputs
+    document.getElementById('loginForm').reset();
+  });
+  
+  // Add event listener for the modal close button click
+  document.getElementById('closeModal').addEventListener('click', function() {
+    // Clear the form inputs when the modal is closed
+    document.getElementById('loginForm').reset();
+  });
+</script>
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center" style="background-image: url('../static/img/slide-1.jpg'); height: 100vh; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center;">
+  <div class="content">
+    <h1 class="margin" style="font-weight: bold;">e-Parking Violations</h1>
+    <p style="font-weight: bold;"><h3><b>Please click below to view your e-parking violation history</b></h3></p>
+    <a href="#violationsTable" class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-search"></span> View Ticket History
+    </a>
+  </div>
+</div>
+
+<!-- Third Container (Grid) -->
+<div id="violationsTable" class="container-fluid bg-3 text-center">
+  <h2 class="margin">Violation History</h2><br>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <table class="table bg-3">
+          <thead>
+            <tr>
+              <th scope="col">Violation ID</th>
+              <th scope="col">Vehicle Number</th>
+              <th scope="col">Date</th>
+              <th scope="col">Fine Reason</th>
+              <th scope="col">Fine Amount</th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Loop through e-parking violations data and populate the table -->
+            <!-- {% for violation in violations %}
+            <tr>
+              <td>{{ violation.id }}</td>
+              <td>{{ violation.vehicle_number }}</td>
+              <td>{{ violation.date }}</td>
+              <td>{{ violation.fine_amount }}</td>
+              <td>{{ violation.status }}</td>
+              <td>
+                <button type="button" class="btn btn-primary btn-sm">Pay</button>
+                <button type="button" class="btn btn-secondary btn-sm">Add to Annual Tax</button>
+              </td>
+            </tr>
+            {% endfor %} -->
+            
+            <!-- Sample data (replace with actual data from your database) -->
+            <tr>
+              <td>VIO1354-12565</td>
+              <td>RS54GTGP</td>
+              <td>2022-01-01</td>
+              <td>Parked in No Parking Zone</td>
+              <td>R150.00</td>
+              <td>Paid</td>
+              <td>
+                <!--button class="btn btn-primary btn-pay" data-violation-id="1">Pay</button>
+                <button class="btn btn-secondary btn-add-tax" data-violation-id="1">Add to Tax</button-->
+              </td>
+            </tr>
+            <!-- Sample data (replace with actual data from your database) -->
+            <tr>
+              <td>VIO1354-12565</td>
+              <td>RS54GTGP</td>
+              <td>2022-01-01</td>
+              <td>Parked in No Parking Zone</td>
+              <td>R150.00</td>
+              <td>Paid</td>
+              <td>
+                <!--button class="btn btn-primary btn-pay" data-violation-id="1">Pay</button>
+                <button class="btn btn-secondary btn-add-tax" data-violation-id="1">Add to Tax</button-->
+              </td>
+            </tr>
+            <!-- Sample data (replace with actual data from your database) -->
+            <tr>
+              <td>VIO1354-12565</td>
+              <td>RS54GTGP</td>
+              <td>2024-01-01</td>
+              <td>Parked in No Parking Zone</td>
+              <td>R150.00</td>
+              <td>Paid</td>
+              <td>
+                <!--button class="btn btn-primary btn-pay" data-violation-id="1">Pay</button>
+                <button class="btn btn-secondary btn-add-tax" data-violation-id="1">Add to Tax</button-->
+              </td>
+            </tr>
+            <!-- Sample data (replace with actual data from your database) -->
+            <tr>
+              <td>VIO1354-12565</td>
+              <td>RS54GTGP</td>
+              <td>2024-04-01</td>
+              <td>Parked in No Parking Zone</td>
+              <td>R150.00</td>
+              <td>Unpaid</td>
+              <td>
+                <button class="btn btn-primary btn-pay" data-violation-id="1">Pay</button>
+                <button class="btn btn-secondary btn-add-tax" data-violation-id="1" onclick="showSuccessModal()">Add to Tax</button>
+              </td>
+            </tr>
+            <!-- Sample data (replace with actual data from your database) -->
+            <tr>
+              <td>VIO1354-12565</td>
+              <td>RS54GTGP</td>
+              <td>2024-04-11</td>
+              <td>Parked in No Parking Zone</td>
+              <td>R150.00</td>
+              <td>Unpaid</td>
+              <td>
+                <button class="btn btn-primary btn-pay" data-violation-id="1">Pay</button>
+                <button class="btn btn-secondary btn-add-tax" data-violation-id="1" onclick="showSuccessModal()">Add to Tax</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="violationsTable" class="container-fluid bg-3 text-center">
+  <h2 class="margin">Violation History</h2><br>
+  <div class="container">
+    <div class="row">
+      <!-- Sample data (replace with actual data from your database) -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card border-dark">
+          <div class="card-body">
+            <h5 class="card-title">Violation ID: VIO1354-12565</h5>
+            <p class="card-text">Vehicle Number: RS54GTGP</p>
+            <p class="card-text">Date: 2022-01-01</p>
+            <p class="card-text"><strong>Fine Reason:</strong> Parked in No Parking Zone</p>
+            <p class="card-text"><strong>Fine Amount:</strong> R150.00</p>
+            <p class="card-text"><strong>Status:</strong> Paid</p>
+            <button class="btn btn-primary btn-pay" data-violation-id="1">Pay</button>
+            <button class="btn btn-secondary btn-add-tax" data-violation-id="1" onclick="showSuccessModal()">Add to Tax</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card border-dark">
+          <div class="card-body">
+            <h5 class="card-title">Violation ID: VIO1234-19065</h5>
+            <p class="card-text">Vehicle Number: RS54GTGP</p>
+            <p class="card-text">Date: 2021-01-01</p>
+            <p class="card-text"><strong>Fine Reason:</strong> Parked in No Parking Zone</p>
+            <p class="card-text"><strong>Fine Amount:</strong> R150.00</p>
+            <p class="card-text"><strong>Status:</strong> Paid</p>
+            <button class="btn btn-primary btn-pay" data-violation-id="1">Pay</button>
+            <button class="btn btn-secondary btn-add-tax" data-violation-id="1" onclick="showSuccessModal()">Add to Tax</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card border-dark">
+          <div class="card-body">
+            <h5 class="card-title">Violation ID: VIO1354-12565</h5>
+            <p class="card-text">Vehicle Number: RS54GTGP</p>
+            <p class="card-text">Date: 2022-01-01</p>
+            <p class="card-text"><strong>Fine Reason:</strong> Parked in No Parking Zone</p>
+            <p class="card-text"><strong>Fine Amount:</strong> R150.00</p>
+            <p class="card-text"><strong>Status:</strong> Paid</p>
+            <button class="btn btn-primary btn-pay" data-violation-id="1">Pay</button>
+            <button class="btn btn-secondary btn-add-tax" data-violation-id="1" onclick="showSuccessModal()">Add to Tax</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Repeat this card block for each violation -->
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Pay Modal -->
+<div class="modal fade bg-3" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="paymentModalLabel">Payment Details</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="expiryDate">Expiry Date</label>
+              <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="cvv">CVV</label>
+              <input type="password" class="form-control" id="cvv" placeholder="CVV">
+            </div>
+          </div>
+        </form>
+
+        <hr>
+
+        <div class="form-group saved-cards">
+          <h3>Saved Cards:</h3>
+          <div class="card" data-card-number="**** **** **** 3193">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-auto">
+                  <img class="img-fluid" src="https://img.icons8.com/color/48/000000/mastercard-logo.png" alt="Mastercard">
+                </div>
+                <div class="col">
+                  **** **** **** 3193 <!-- Display the card number here -->
+                </div>
+                <div class="col-auto">
+                  <button class="btn btn-outline-danger btn-sm remove-card">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mt-3" data-card-number="**** **** **** 4296">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-auto">
+                  <img class="img-fluid" src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+                </div>
+                <div class="col">
+                  **** **** **** 4296 <!-- Display the card number here -->
+                </div>
+                <div class="col-auto">
+                  <button class="btn btn-outline-danger btn-sm remove-card">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary pay-now">Pay Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Successful Popup Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-success">
+      <div class="modal-body text-center">
+        <h5 class="modal-title" id="successModalLabel">Success</h5>
+        <p>You have successfully added this fine to your annual vehicle tax.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $(document).ready(function() {
+    // Function to handle card removal
+    $(".remove-card").click(function() {
+      $(this).closest(".card").remove();
+    });
+
+    // Function to handle payment
+    $(".pay-now").click(function() {
+      var cardNumber = $("#cardNumber").val();
+      var expiryDate = $("#expiryDate").val();
+      var cvv = $("#cvv").val();
+
+      // Perform payment logic here using the selected card details
+      // For demonstration, we'll just log the selected card details
+      console.log("Card Number:", cardNumber);
+      console.log("Expiry Date:", expiryDate);
+      console.log("CVV:", cvv);
+    });
+  });
+  function showSuccessModal() {
+    $('#successModal').modal('show');
+  }
+</script>
+
+
+
+
+
+<!-- Payment Processing Modal -->
+<div class="modal fade" id="processingModal" tabindex="-1" role="dialog" aria-labelledby="processingModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="text-center">
+          <div class="spinner-border" role="status">
+            <span class="sr-only bg-3">Loading...</span>
+          </div>
+          <p class="mt-2 bg-3">Processing your payment...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Tax Modal -->
+<div class="modal fade" id="taxAddedModal" tabindex="-1" aria-labelledby="taxAddedModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="taxAddedModalLabel">Success!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Thank You, Your Violation Has Been Added To Your Vehicle's Annual Tax</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  // When the Pay button is clicked, show the payment modal
+document.querySelectorAll('.btn-pay').forEach(item => {
+  item.addEventListener('click', event => {
+    $('#paymentModal').modal('show'); // Show the payment modal
+  })
+});
+
+document.querySelector('#paymentModal .btn-primary').addEventListener('click', function() {
+  // Show processing modal
+  $('#processingModal').modal('show');
+
+  // Hide payment modal after 5 seconds
+  setTimeout(function() {
+    $('#processingModal').modal('hide');
+
+    // Show payment success message
+    alert('Payment successful!');
+
+    // Close payment modal
+    $('#paymentModal').modal('hide');
+  }, 5000);
+});
+document.addEventListener("DOMContentLoaded", function() {
+    var addToTaxButton = document.querySelector('.btn-add-tax');
+
+    addToTaxButton.addEventListener('click', function() {
+      var taxAddedModal = new bootstrap.Modal(document.getElementById('taxAddedModal'));
+      taxAddedModal.show();
+
+      // Automatically close the modal after 2 seconds
+      setTimeout(function() {
+        taxAddedModal.hide();
+      }, 2000);
+    });
+  });
+</script>
+
+<!-- Back to Top Button -->
+<a href="#top" class="btn-back-to-top">
+  <i class="fa fa-arrow-up"></i>
+</a>
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <div class="copyright">
+    &copy; Copyright <strong><span>Group N SFG Assignment</span></strong>. All Rights Reserved
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+  }
+  .bg-2 { 
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+  }
+  .bg-3 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+  }
+  .bg-4 { 
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+    color: #1abc9c !important;
+  }
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Set text color to white */
+  }
+
+  .btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+    background-color: #007bff;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    z-index: 99;
+    display: none; /* Hide by default */
+  }
+  .modal-open .modal-backdrop {
+    backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+  }
+  .modal-open .modal-backdrop.blur-background {
+    backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+  }
+  .btn-back-to-top:hover {
+    background-color: #0056b3;
+  }
+
+  #processingModal.modal {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  #processingModal .modal-dialog {
+    margin: auto !important;
+  }
+  
+  #processingModal .modal-content {
+    background-color: #a3b18a !important; /* Background color */
+  }
+  
+  #processingModal .modal-body {
+    text-align: center !important;
+  }
+  
+  #processingModal .spinner-border {
+    color: #fff !important; /* White color */
+  }
+  
+  #processingModal .mt-2 {
+    color: #fff !important; /* White color */
+  }
+
+  .blur-background {
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    transition: filter 0.3s ease;
+}
+
+/* Center the modal */
+.modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100% - 60px); /* Adjust as needed */
+}
+
+/* Adjust the modal content width */
+.modal-content {
+    width: 90%;
+    max-width: 600px; /* Adjust as needed */
+    background-color: white; /* Adjust as needed */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adjust as needed */
+}
+
+.card {
+    padding: 20px;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.row-1,
+.row-2,
+.three {
+    margin-bottom: 20px;
+}
+
+.row-1 .col-2,
+.row-2 .col-2,
+.three .col-2 {
+    display: flex;
+    align-items: center;
+}
+
+.row-1 .col-7,
+.row-2 .col-7,
+.three .col-7 {
+    display: flex;
+    align-items: center;
+}
+
+.row-1 .col-3,
+.row-2 .col-3,
+.three .col-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card-header,
+#card-inner {
+    font-weight: bold;
+}
+
+.btn {
+    width: 150px;
+    margin: 0 auto;
+    display: block;
+}
